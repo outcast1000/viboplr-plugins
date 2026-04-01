@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "plugins": [
+    {
+      "id": "tidal-browse",
+      "name": "TIDAL",
+      "author": "Viboplr",
+      "description": "Search, stream, and download from TIDAL",
+      "version": "1.0.0",
+      "minAppVersion": "0.7.0",
+      "files": ["manifest.json", "index.js"]
+    },
+    {
+      "id": "spotify-browse",
+      "name": "Spotify",
+      "author": "Viboplr",
+      "description": "Browse your Spotify library — liked songs and playlists",
+      "version": "1.0.0",
+      "minAppVersion": "0.7.0",
+      "files": ["manifest.json", "index.js"]
+    },
+    {
+      "id": "randomizer",
+      "name": "Randomizer",
+      "author": "Viboplr",
+      "description": "Shows 10 random tracks from your library",
+      "version": "1.0.0",
+      "files": ["manifest.json", "index.js"]
+    },
+    {
+      "id": "example-stats",
+      "name": "Example Stats",
+      "author": "Viboplr",
+      "description": "Example plugin showing playback statistics and plugin API usage",
+      "version": "1.0.0",
+      "minAppVersion": "0.7.0",
+      "files": ["manifest.json", "index.js"]
+    }
+  ]
+}
