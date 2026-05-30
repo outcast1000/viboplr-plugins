@@ -1,40 +1,32 @@
 {
-  "version": 1,
+  "version": 2,
   "plugins": [
-    {
-      "id": "tidal-browse",
-      "name": "TIDAL",
-      "author": "Viboplr",
-      "description": "Search, stream, and download from TIDAL",
-      "version": "1.0.0",
-      "minAppVersion": "0.7.0",
-      "files": ["manifest.json", "index.js"]
-    },
     {
       "id": "spotify-browse",
       "name": "Spotify",
       "author": "Viboplr",
       "description": "Browse your Spotify library — liked songs and playlists",
-      "version": "1.0.0",
+      "version": "1.11.0",
       "minAppVersion": "0.7.0",
-      "files": ["manifest.json", "index.js"]
+      "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json"
     },
     {
-      "id": "randomizer",
-      "name": "Randomizer",
+      "id": "tidal-browse",
+      "name": "TIDAL",
       "author": "Viboplr",
-      "description": "Shows 10 random tracks from your library",
-      "version": "1.0.0",
-      "files": ["manifest.json", "index.js"]
+      "description": "Search, stream, and download from TIDAL",
+      "version": "1.2.0",
+      "minAppVersion": "0.7.0",
+      "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json"
     },
     {
-      "id": "example-stats",
-      "name": "Example Stats",
+      "id": "p2p-sharing",
+      "name": "P2P Sharing",
       "author": "Viboplr",
-      "description": "Example plugin showing playback statistics and plugin API usage",
-      "version": "1.0.0",
-      "minAppVersion": "0.7.0",
-      "files": ["manifest.json", "index.js"]
+      "description": "Search, stream, and download from other Viboplr users via peer-to-peer",
+      "version": "0.2.0",
+      "minAppVersion": "0.9.78",
+      "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json"
     }
   ]
 }
