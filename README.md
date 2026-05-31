@@ -19,7 +19,6 @@ mechanism used for auto-updates).
       "name": "Display Name",
       "author": "Author",
       "description": "What it does",
-      "version": "X.Y.Z",
       "minAppVersion": "0.7.0",
       "updateUrl": "https://github.com/<owner>/<repo>/releases/latest/download/update.json"
     }
@@ -27,8 +26,10 @@ mechanism used for auto-updates).
 }
 ```
 
-`version`/`minAppVersion` here are for display; the authoritative values come
-from each plugin's `updateUrl` at install time. Every plugin entry must have an
+The plugin's `version` is intentionally omitted here — the authoritative
+version comes from each plugin's `updateUrl` at install/update time, so a copy
+in this index would only drift stale. `minAppVersion` is advisory (for display
+and pre-install compatibility hints). Every plugin entry must have an
 `updateUrl`.
 
 ## Current plugins
