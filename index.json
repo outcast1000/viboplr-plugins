@@ -27,6 +27,15 @@
       "version": "0.2.0",
       "minAppVersion": "0.9.78",
       "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "author": "Viboplr",
+      "description": "Play and download tracks from YouTube via yt-dlp",
+      "version": "1.0.0",
+      "minAppVersion": "0.9.4",
+      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json"
     }
   ]
 }
