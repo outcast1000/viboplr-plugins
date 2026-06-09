@@ -2,6 +2,16 @@
   "version": 2,
   "plugins": [
     {
+      "id": "spotify-browse",
+      "name": "Spotify",
+      "author": "Viboplr",
+      "description": "Browse your Spotify library — liked songs and playlists",
+      "minAppVersion": "0.7.0",
+      "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/spotify.zip",
+      "recommended": true
+    },
+    {
       "id": "auto-tagger",
       "name": "Auto Tagger",
       "author": "Viboplr",
@@ -27,15 +37,6 @@
       "minAppVersion": "0.9.78",
       "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/p2p.zip"
-    },
-    {
-      "id": "spotify-browse",
-      "name": "Spotify",
-      "author": "Viboplr",
-      "description": "Browse your Spotify library — liked songs and playlists",
-      "minAppVersion": "0.7.0",
-      "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/spotify.zip"
     },
     {
       "id": "tidal-browse",
