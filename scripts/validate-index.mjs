@@ -5,6 +5,7 @@
 
 import { readFileSync } from "node:fs";
 import { isHttpsUrl, isVersionString, isCleanText } from "./lib.mjs";
+import { readRecommendedIds, RECOMMENDED_FILE } from "./recommended.mjs";
 
 const INDEX = "index.json";
 const errors = [];
@@ -35,6 +36,28 @@ if (!Array.isArray(index.plugins)) {
     if (p.minAppVersion != null && !isVersionString(p.minAppVersion)) errors.push(`${at}: minAppVersion not numeric.`);
     if (p.recommended != null && typeof p.recommended !== "boolean") errors.push(`${at}: recommended must be boolean.`);
     if ("version" in p) errors.push(`${at}: drop the display-only "version" field (resolved from update.json at install).`);
+  });
+
+  // recommended.json is the single source of truth; index flags must match it.
+  let recIds = [];
+  try {
+    recIds = readRecommendedIds();
+  } catch (e) {
+    errors.push(`${RECOMMENDED_FILE}: ${e.message}`);
+  }
+  const recSet = new Set(recIds);
+  const indexIds = new Set(index.plugins.map((p) => p.id));
+  for (const id of recIds) {
+    if (!indexIds.has(id)) errors.push(`${RECOMMENDED_FILE} lists "${id}" but no such plugin exists in index.json.`);
+  }
+  index.plugins.forEach((p) => {
+    const shouldBeRec = recSet.has(p.id);
+    const isRec = p.recommended === true;
+    if (shouldBeRec && !isRec) {
+      errors.push(`plugins[${p.id}]: should be recommended (in ${RECOMMENDED_FILE}) but flag is missing. Run: node scripts/sync-recommended.mjs`);
+    } else if (!shouldBeRec && isRec) {
+      errors.push(`plugins[${p.id}]: has recommended=true but is not in ${RECOMMENDED_FILE}. Run: node scripts/sync-recommended.mjs`);
+    }
   });
 }
 

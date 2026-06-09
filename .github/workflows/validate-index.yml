@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - "index.json"
+      - "recommended.json"
       - "scripts/**"
   push:
     branches: [main]
     paths:
       - "index.json"
+      - "recommended.json"
 
 jobs:
   validate:

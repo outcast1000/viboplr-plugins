@@ -1,0 +1,47 @@
+name: Sync recommended
+
+# When recommended.json (the single source of truth) changes on main, derive the
+# `recommended` flags into index.json and commit the result. You only ever edit
+# recommended.json — this keeps index.json in sync automatically.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "recommended.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-recommended
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync index.json from recommended.json
+        run: node scripts/sync-recommended.mjs
+
+      - name: Validate
+        run: node scripts/validate-index.mjs
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain index.json)" ]; then
+            git config user.name "viboplr-gallery-bot"
+            git config user.email "bot@viboplr.com"
+            git add index.json
+            git commit -m "chore: sync recommended flags from recommended.json"
+            git push
+            echo "index.json updated and pushed."
+          else
+            echo "index.json already in sync — nothing to commit."
+          fi

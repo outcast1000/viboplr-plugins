@@ -13,6 +13,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { parseIssueForm } from "./lib.mjs";
 import { validatePlugin } from "./validate-plugin.mjs";
+import { applyRecommended, readRecommendedIds } from "./recommended.mjs";
 
 const INDEX = "index.json";
 
@@ -69,18 +70,16 @@ if (!Array.isArray(index.plugins)) throw new Error("index.json is malformed: plu
 
 const existingIdx = index.plugins.findIndex((p) => p.id === entry.id);
 const isUpdate = existingIdx !== -1;
+// The bot never sets `recommended` from a submission — it's derived from
+// recommended.json (the curator's single source of truth) below.
+delete entry.recommended;
 if (isUpdate) {
-  // Preserve curator-controlled `recommended` across re-submissions.
-  if (index.plugins[existingIdx].recommended) entry.recommended = true;
   index.plugins[existingIdx] = entry;
 } else {
   index.plugins.push(entry);
 }
-// Stable order: recommended first, then alphabetical by name.
-index.plugins.sort((a, b) => {
-  const r = (b.recommended ? 1 : 0) - (a.recommended ? 1 : 0);
-  return r !== 0 ? r : a.name.localeCompare(b.name);
-});
+// Derive recommended flags + canonical sort from recommended.json.
+applyRecommended(index, readRecommendedIds());
 writeFileSync(INDEX, JSON.stringify(index, null, 2) + "\n");
 
 // --- open the PR ---
