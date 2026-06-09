@@ -17,9 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
       - name: Validate index.json structure
         run: node scripts/validate-index.mjs
       - name: Run lib unit tests
