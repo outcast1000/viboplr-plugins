@@ -1,0 +1,44 @@
+name: Submit a plugin
+description: Add your plugin to the Viboplr gallery. You only need its update.json URL.
+title: "[Plugin] <your plugin name>"
+labels: ["plugin-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing a plugin! 🎉
+
+        Viboplr's gallery is **index-only** — your plugin's code stays in your own
+        GitHub repo. You just point us at your release's `update.json` and a bot
+        validates the real artifact (downloads the zip, reads `manifest.json`),
+        then opens a PR for a maintainer to merge.
+
+        **Before submitting**, make sure your repo has a published release whose
+        assets include a `<name>.zip` (with `manifest.json` at the zip **root**)
+        and an `update.json`. See the [submission guide](https://github.com/outcast1000/viboplr-plugins#submitting-a-plugin).
+  - type: input
+    id: update-url
+    attributes:
+      label: Plugin update.json URL
+      description: The permanent latest-release URL to your update.json.
+      placeholder: https://github.com/your-name/your-plugin/releases/latest/download/update.json
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for the maintainer
+      description: Optional — anything we should know when reviewing (e.g. requires yt-dlp).
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: My plugin's zip has `manifest.json` at the root (not inside a folder).
+          required: true
+        - label: The `id` in my manifest is unique and stable across releases.
+          required: true
+        - label: I understand all metadata (name, author, description, icon) is read from my manifest.
+          required: true

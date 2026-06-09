@@ -1,0 +1,24 @@
+name: Validate index
+
+on:
+  pull_request:
+    paths:
+      - "index.json"
+      - "scripts/**"
+  push:
+    branches: [main]
+    paths:
+      - "index.json"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate index.json structure
+        run: node scripts/validate-index.mjs
+      - name: Run lib unit tests
+        run: node scripts/lib.test.mjs

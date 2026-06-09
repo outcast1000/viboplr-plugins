@@ -7,7 +7,8 @@
       "author": "Viboplr",
       "description": "Browse your Spotify library — liked songs and playlists",
       "minAppVersion": "0.7.0",
-      "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json"
+      "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/spotify.zip"
     },
     {
       "id": "tidal-browse",
@@ -15,7 +16,8 @@
       "author": "Viboplr",
       "description": "Search, stream, and download from TIDAL",
       "minAppVersion": "0.7.0",
-      "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json"
+      "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/tidal.zip"
     },
     {
       "id": "p2p-sharing",
@@ -23,7 +25,8 @@
       "author": "Viboplr",
       "description": "Search, stream, and download from other Viboplr users via peer-to-peer",
       "minAppVersion": "0.9.78",
-      "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json"
+      "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/p2p.zip"
     },
     {
       "id": "youtube",
@@ -31,7 +34,8 @@
       "author": "Viboplr",
       "description": "Play and download tracks from YouTube via yt-dlp",
       "minAppVersion": "0.9.4",
-      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json"
+      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip"
     },
     {
       "id": "genius",
@@ -39,7 +43,8 @@
       "author": "Viboplr",
       "description": "Song explanations, artist descriptions, album reviews, and lyrics from Genius",
       "minAppVersion": "0.9.4",
-      "updateUrl": "https://github.com/outcast1000/viboplr-genius/releases/latest/download/update.json"
+      "updateUrl": "https://github.com/outcast1000/viboplr-genius/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-genius/releases/latest/download/genius.zip"
     },
     {
       "id": "auto-tagger",
@@ -47,7 +52,8 @@
       "author": "Viboplr",
       "description": "Discover recurring patterns in file paths and metadata and classify them as tags, artists, or albums",
       "minAppVersion": "0.9.25",
-      "updateUrl": "https://github.com/outcast1000/viboplr-auto-tagger/releases/latest/download/update.json"
+      "updateUrl": "https://github.com/outcast1000/viboplr-auto-tagger/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-auto-tagger/releases/latest/download/auto-tagger.zip"
     }
   ]
 }

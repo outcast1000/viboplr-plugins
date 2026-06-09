@@ -1,0 +1,39 @@
+name: Process plugin submission
+
+on:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write       # push the submission branch
+  issues: write         # comment + label
+  pull-requests: write  # open the PR
+
+jobs:
+  process:
+    # Only act on submission issues, and for comments only on `/retry`.
+    if: >
+      contains(join(github.event.issue.labels.*.name, ','), 'plugin-submission') &&
+      (github.event_name != 'issue_comment' ||
+       (github.event.issue.pull_request == null &&
+        contains(github.event.comment.body, '/retry')))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate submission and open PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+        run: node scripts/process-submission.mjs

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Viboplr app & docs
+    url: https://viboplr.com
+    about: The Viboplr music player and its documentation.
+  - name: Browse the plugin gallery
+    url: https://viboplr.com/plugins.html
+    about: See every plugin currently in the gallery.
