@@ -12,6 +12,16 @@
       "recommended": true
     },
     {
+      "id": "youtube",
+      "name": "YouTube",
+      "author": "Viboplr",
+      "description": "Play and download tracks from YouTube via yt-dlp",
+      "minAppVersion": "0.9.4",
+      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip",
+      "recommended": true
+    },
+    {
       "id": "auto-tagger",
       "name": "Auto Tagger",
       "author": "Viboplr",
@@ -46,15 +56,6 @@
       "minAppVersion": "0.7.0",
       "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/tidal.zip"
-    },
-    {
-      "id": "youtube",
-      "name": "YouTube",
-      "author": "Viboplr",
-      "description": "Play and download tracks from YouTube via yt-dlp",
-      "minAppVersion": "0.9.4",
-      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip"
     }
   ]
 }
