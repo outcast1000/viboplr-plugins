@@ -47,7 +47,8 @@
       "description": "Search, stream, and download from other Viboplr users via peer-to-peer",
       "minAppVersion": "0.9.78",
       "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/p2p.zip"
+      "installUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/p2p.zip",
+      "stability": "experimental"
     },
     {
       "id": "tidal-browse",
@@ -56,7 +57,8 @@
       "description": "Search, stream, and download from TIDAL",
       "minAppVersion": "0.7.0",
       "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/tidal.zip"
+      "installUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/tidal.zip",
+      "stability": "experimental"
     }
   ]
 }
