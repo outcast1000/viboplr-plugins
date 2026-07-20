@@ -140,14 +140,18 @@ export async function validatePlugin(updateUrl) {
 
     if (errors.length) return { ok: false, errors, warnings, entry: null };
 
-    // Index entry shape matches the LIVE index.json exactly (no display-only
-    // "version" field — that was dropped in commit ab8e402; the real version is
-    // resolved from update.json at install time).
+    // `version` / `minAppVersion` are display-only metadata owned by
+    // scripts/reconcile-versions.mjs, which keeps them in sync with the live
+    // update.json (daily + on release); the real version/min-app gate is
+    // resolved from update.json at install time. We seed `version` here (from
+    // the already-validated update.version) so a freshly-merged entry is
+    // accurate immediately, before the next reconcile run.
     const entry = {
       id,
       name: String(manifest.name).trim(),
       author: String(manifest.author).trim(),
       description: String(manifest.description).trim(),
+      version: String(update.version),
       ...(manifest.minAppVersion || update.minAppVersion
         ? { minAppVersion: String(manifest.minAppVersion || update.minAppVersion) }
         : {}),
