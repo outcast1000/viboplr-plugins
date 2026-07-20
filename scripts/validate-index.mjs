@@ -35,7 +35,10 @@ if (!Array.isArray(index.plugins)) {
     if (p.installUrl != null && !isHttpsUrl(p.installUrl)) errors.push(`${at}: installUrl must be an https URL if present.`);
     if (p.minAppVersion != null && !isVersionString(p.minAppVersion)) errors.push(`${at}: minAppVersion not numeric.`);
     if (p.recommended != null && typeof p.recommended !== "boolean") errors.push(`${at}: recommended must be boolean.`);
-    if ("version" in p) errors.push(`${at}: drop the display-only "version" field (resolved from update.json at install).`);
+    // `version` is display-only metadata, owned by scripts/reconcile-versions.mjs
+    // (synced from each plugin's live update.json). Humans don't hand-set it; if
+    // present it must be a version string. Absent is fine (the bot backfills it).
+    if ("version" in p && !isVersionString(p.version)) errors.push(`${at}: version, if present, must be numeric (owned by reconcile-versions.mjs).`);
   });
 
   // recommended.json is the single source of truth; index flags must match it.

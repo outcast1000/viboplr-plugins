@@ -24,3 +24,5 @@ jobs:
         run: node scripts/validate-index.mjs
       - name: Run lib unit tests
         run: node scripts/lib.test.mjs
+      - name: Run reconcile unit tests
+        run: node scripts/reconcile.test.mjs

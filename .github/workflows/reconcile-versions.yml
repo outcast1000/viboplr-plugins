@@ -1,0 +1,53 @@
+name: Reconcile versions
+
+# Keep each plugin entry's display `version` / `minAppVersion` in index.json in
+# sync with its live update.json (the single source of truth). Runs daily, on
+# demand, and — optionally — when a plugin repo signals a fresh release via
+# repository_dispatch (event type: plugin-released).
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # daily ~06:17 UTC
+  workflow_dispatch: {}
+  repository_dispatch:
+    types: [plugin-released]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reconcile-versions
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      # May exit non-zero on a broken plugin (update.json 404 / malformed), but
+      # still writes the valid syncs — the commit step (if: always) lands them
+      # while the job stays red to flag the breakage.
+      - name: Reconcile versions from live update.json
+        run: node scripts/reconcile-versions.mjs
+
+      - name: Validate
+        if: always()
+        run: node scripts/validate-index.mjs
+
+      - name: Commit if changed
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain index.json)" ]; then
+            git config user.name "viboplr-gallery-bot"
+            git config user.email "bot@viboplr.com"
+            git add index.json
+            git commit -m "chore: sync plugin versions from live update.json"
+            git push
+            echo "index.json updated and pushed."
+          else
+            echo "index.json already in sync — nothing to commit."
+          fi
