@@ -31,7 +31,16 @@
       "version": "1.6.0",
       "minAppVersion": "0.9.124",
       "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip",
+      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip"
+    },
+    {
+      "id": "ytdlp",
+      "name": "yt-dlp",
+      "author": "Viboplr",
+      "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
+      "minAppVersion": "0.9.124",
+      "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip",
       "recommended": true
     },
     {
