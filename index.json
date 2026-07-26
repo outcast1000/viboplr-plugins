@@ -31,17 +31,7 @@
       "version": "1.6.0",
       "minAppVersion": "0.9.124",
       "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip"
-    },
-    {
-      "id": "ytdlp",
-      "name": "yt-dlp",
-      "author": "Viboplr",
-      "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
-      "version": "1.8.0",
-      "minAppVersion": "0.9.124",
-      "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip",
+      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip",
       "recommended": true
     },
     {
@@ -53,6 +43,17 @@
       "minAppVersion": "0.9.25",
       "updateUrl": "https://github.com/outcast1000/viboplr-auto-tagger/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-auto-tagger/releases/latest/download/auto-tagger.zip"
+    },
+    {
+      "id": "ffmpeg-tools",
+      "name": "FFmpeg Tools",
+      "author": "Viboplr",
+      "description": "Bulk-convert local tracks to another format and inspect deep container/stream/tag + loudness info, all via your system ffmpeg.",
+      "version": "1.0.0",
+      "minAppVersion": "1.0.2",
+      "updateUrl": "https://github.com/outcast1000/viboplr-ffmpeg-tools/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-ffmpeg-tools/releases/latest/download/ffmpeg-tools.zip",
+      "icon": "M14.7 6.3a1 1 0 0 1 0 1.4l-1.6 1.6a1 1 0 0 1-1.4 0l-1.6-1.6a1 1 0 0 1 0-1.4l3.77-3.77a6 6 0 0 0-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 0 3 3l6.91-6.91a6 6 0 0 0 7.94-7.94l-3.76 3.76z"
     },
     {
       "id": "p2p-sharing",
@@ -75,6 +76,16 @@
       "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/tidal.zip",
       "stability": "experimental"
+    },
+    {
+      "id": "ytdlp",
+      "name": "yt-dlp",
+      "author": "Viboplr",
+      "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
+      "version": "1.8.0",
+      "minAppVersion": "0.9.124",
+      "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip"
     }
   ]
 }
