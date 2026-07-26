@@ -24,14 +24,14 @@
       "recommended": true
     },
     {
-      "id": "youtube",
-      "name": "YouTube",
+      "id": "ytdlp",
+      "name": "yt-dlp",
       "author": "Viboplr",
-      "description": "Play and download tracks from YouTube via yt-dlp",
-      "version": "1.6.0",
+      "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
+      "version": "1.8.0",
       "minAppVersion": "0.9.124",
-      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip",
+      "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip",
       "recommended": true
     },
     {
@@ -78,14 +78,14 @@
       "stability": "experimental"
     },
     {
-      "id": "ytdlp",
-      "name": "yt-dlp",
+      "id": "youtube",
+      "name": "YouTube",
       "author": "Viboplr",
-      "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
-      "version": "1.8.0",
+      "description": "Play and download tracks from YouTube via yt-dlp",
+      "version": "1.6.0",
       "minAppVersion": "0.9.124",
-      "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip"
+      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip"
     }
   ]
 }
