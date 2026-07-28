@@ -65,6 +65,46 @@
       "stability": "experimental"
     },
     {
+      "id": "library-stats",
+      "name": "Library Statistics",
+      "author": "Viboplr",
+      "description": "A dashboard of your library composition, listening patterns, and top charts — built from your local library and play history.",
+      "updateUrl": "https://github.com/outcast1000/viboplr-library-stats/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-library-stats/releases/latest/download/library-stats.zip"
+    },
+    {
+      "id": "duplicate-finder",
+      "name": "Duplicate Finder",
+      "author": "Viboplr",
+      "description": "Find duplicate tracks in your library — the same song downloaded twice or in two folders — and reclaim space by deleting the extra copies. Diacritic-insensitive grouping, with optional duration and file-size matching.",
+      "updateUrl": "https://github.com/outcast1000/viboplr-duplicate-finder/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-duplicate-finder/releases/latest/download/duplicate-finder.zip"
+    },
+    {
+      "id": "lyrics-search",
+      "name": "Lyrics Search",
+      "author": "Viboplr",
+      "description": "Search the lyrics cached in your library, filter matches by artist, title or album, and jump straight to the track.",
+      "updateUrl": "https://github.com/outcast1000/viboplr-lyrics-search/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-lyrics-search/releases/latest/download/lyrics-search.zip"
+    },
+    {
+      "id": "search-providers",
+      "name": "Web Search",
+      "author": "Viboplr",
+      "description": "Adds a Search submenu to artists, albums, and tracks for looking them up on Google, Last.fm, X, YouTube, Genius, and your own custom providers.",
+      "updateUrl": "https://github.com/outcast1000/viboplr-search-providers/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-search-providers/releases/latest/download/search-providers.zip"
+    },
+    {
+      "id": "subsonic-browse",
+      "name": "Subsonic Browse",
+      "author": "Viboplr",
+      "description": "Search, stream, and download across multiple Subsonic/Navidrome servers live — no indexing. A discovery layer separate from your indexed Library.",
+      "updateUrl": "https://github.com/outcast1000/viboplr-subsonic-browse/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-subsonic-browse/releases/latest/download/subsonic-browse.zip"
+    },
+    {
       "id": "p2p-sharing",
       "name": "P2P Sharing",
       "author": "Viboplr",
