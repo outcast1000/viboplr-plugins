@@ -61,7 +61,8 @@
       "author": "Viboplr",
       "description": "Lyrics and artwork from Google — scraped song lyrics plus artist, album, and tag images",
       "updateUrl": "https://github.com/outcast1000/viboplr-google/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-google/releases/latest/download/google.zip"
+      "installUrl": "https://github.com/outcast1000/viboplr-google/releases/latest/download/google.zip",
+      "stability": "experimental"
     },
     {
       "id": "p2p-sharing",
