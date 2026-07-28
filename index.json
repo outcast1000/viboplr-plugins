@@ -17,7 +17,7 @@
       "name": "Spotify",
       "author": "Viboplr",
       "description": "Browse your Spotify library — liked songs and playlists",
-      "version": "1.14.0",
+      "version": "1.15.0",
       "minAppVersion": "0.9.98",
       "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/spotify.zip",
