@@ -117,17 +117,6 @@
       "minAppVersion": "0.9.4"
     },
     {
-      "id": "p2p-sharing",
-      "name": "P2P Sharing",
-      "author": "Viboplr",
-      "description": "Search, stream, and download from other Viboplr users via peer-to-peer",
-      "version": "0.2.0",
-      "minAppVersion": "0.9.78",
-      "updateUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-p2p/releases/latest/download/p2p.zip",
-      "stability": "experimental"
-    },
-    {
       "id": "tidal-browse",
       "name": "TIDAL",
       "author": "Viboplr",

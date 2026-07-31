@@ -79,4 +79,4 @@ All scripts are zero-dependency Node 20+ (`unzip` CLI is used to read zips).
 ## Current plugins
 
 See [`index.json`](index.json) for the live list. Currently: `spotify-browse`,
-`tidal-browse`, `p2p-sharing`, `youtube`, `genius`, `auto-tagger`.
+`tidal-browse`, `youtube`, `genius`, `auto-tagger`.
