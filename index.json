@@ -142,7 +142,7 @@
       "name": "Vinyl Deck",
       "author": "Viboplr",
       "description": "Presses the play queue onto a single-sided record: one groove band per track, sized by its duration and cut from its own waveform. Drag the tonearm or scrub the grooves to cue. Right-click the Now Playing artwork to use it.",
-      "version": "1.1.0",
+      "version": "1.4.0",
       "minAppVersion": "1.0.16",
       "updateUrl": "https://github.com/outcast1000/viboplr-vinyl-deck/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-vinyl-deck/releases/latest/download/vinyl-deck.zip",
