@@ -10,7 +10,13 @@
       "minAppVersion": "0.9.4",
       "updateUrl": "https://github.com/outcast1000/viboplr-genius/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-genius/releases/latest/download/genius.zip",
-      "recommended": true
+      "recommended": true,
+      "profiles": [
+        "normal",
+        "video",
+        "streaming",
+        "server"
+      ]
     },
     {
       "id": "spotify-browse",
@@ -21,7 +27,10 @@
       "minAppVersion": "0.9.98",
       "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/spotify.zip",
-      "recommended": true
+      "recommended": true,
+      "profiles": [
+        "streaming"
+      ]
     },
     {
       "id": "ytdlp",
@@ -32,7 +41,11 @@
       "minAppVersion": "1.0.3",
       "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip",
-      "recommended": true
+      "recommended": true,
+      "profiles": [
+        "streaming",
+        "video"
+      ]
     },
     {
       "id": "auto-tagger",
@@ -114,7 +127,10 @@
       "version": "1.0.1",
       "updateUrl": "https://github.com/outcast1000/viboplr-subsonic-browse/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-subsonic-browse/releases/latest/download/subsonic-browse.zip",
-      "minAppVersion": "0.9.4"
+      "minAppVersion": "0.9.4",
+      "profiles": [
+        "server"
+      ]
     },
     {
       "id": "tidal-browse",
