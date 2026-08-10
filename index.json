@@ -128,16 +128,6 @@
       "stability": "experimental"
     },
     {
-      "id": "youtube",
-      "name": "YouTube",
-      "author": "Viboplr",
-      "description": "Play and download tracks from YouTube via yt-dlp",
-      "version": "1.6.0",
-      "minAppVersion": "0.9.124",
-      "updateUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-youtube/releases/latest/download/youtube.zip"
-    },
-    {
       "id": "vinyl-deck",
       "name": "Vinyl Deck",
       "author": "Viboplr",
