@@ -37,7 +37,7 @@
       "name": "yt-dlp",
       "author": "Viboplr",
       "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
-      "version": "1.15.0",
+      "version": "1.16.0",
       "minAppVersion": "1.0.3",
       "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip",
