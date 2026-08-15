@@ -152,6 +152,17 @@
       "minAppVersion": "1.0.16",
       "updateUrl": "https://github.com/outcast1000/viboplr-vinyl-deck/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-vinyl-deck/releases/latest/download/vinyl-deck.zip"
+    },
+    {
+      "id": "qbittorrent",
+      "name": "qBittorrent",
+      "author": "Viboplr",
+      "description": "Control a qBittorrent WebUI from inside Viboplr: add magnet links, watch live progress, and start, stop or remove torrents without leaving the app.",
+      "version": "0.1.0",
+      "minAppVersion": "1.0.27",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-qbittorrent/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-qbittorrent/releases/latest/download/qbittorrent.zip"
     }
   ]
 }
