@@ -37,7 +37,7 @@
       "name": "yt-dlp",
       "author": "Viboplr",
       "description": "Play & download audio and video from YouTube, SoundCloud, Bandcamp and 1000+ sites via yt-dlp",
-      "version": "1.16.5",
+      "version": "1.19.0",
       "minAppVersion": "1.0.23",
       "updateUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-ytdlp/releases/latest/download/ytdlp.zip",
@@ -148,7 +148,7 @@
       "name": "Vinyl Deck",
       "author": "Viboplr",
       "description": "Presses the play queue onto a single-sided record: one groove band per track, sized by its duration and cut from its own waveform. Drag the headshell to cue, and use the cue lever to lift or drop the needle. Comes in two decks — a bare record on black, or a silver direct-drive console with a plinth, an S-shaped arm and a working START/STOP. Pick either from the visualizer button in the Now Playing view.",
-      "version": "1.4.3",
+      "version": "1.4.4",
       "minAppVersion": "1.0.16",
       "updateUrl": "https://github.com/outcast1000/viboplr-vinyl-deck/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-vinyl-deck/releases/latest/download/vinyl-deck.zip"
