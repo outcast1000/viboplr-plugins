@@ -158,7 +158,7 @@
       "name": "qBittorrent",
       "author": "Viboplr",
       "description": "Control a qBittorrent WebUI from inside Viboplr: add magnet links, watch live progress, and start, stop or remove torrents without leaving the app.",
-      "version": "0.10.1",
+      "version": "0.18.0",
       "minAppVersion": "1.0.27",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-qbittorrent/releases/latest/download/update.json",
