@@ -163,6 +163,15 @@
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-qbittorrent/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-qbittorrent/releases/latest/download/qbittorrent.zip"
+    },
+    {
+      "id": "slskd",
+      "name": "Soulseek",
+      "author": "Viboplr",
+      "description": "Search and download from the Soulseek network via a slskd daemon: ranked results, whole-album grabs, live transfer progress, and finished files that play and reach your library.",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/slskd.zip"
     }
   ]
 }
