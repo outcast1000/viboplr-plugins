@@ -169,9 +169,11 @@
       "name": "Soulseek",
       "author": "Viboplr",
       "description": "Search and download from the Soulseek network via a slskd daemon: ranked results, whole-album grabs, live transfer progress, and finished files that play and reach your library.",
+      "version": "0.3.1",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/slskd.zip"
+      "installUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/slskd.zip",
+      "minAppVersion": "1.0.34"
     }
   ]
 }
