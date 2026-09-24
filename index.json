@@ -174,6 +174,15 @@
       "updateUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/slskd.zip",
       "minAppVersion": "1.0.34"
+    },
+    {
+      "id": "rqbit",
+      "name": "rqbit",
+      "author": "Viboplr",
+      "description": "Download music over BitTorrent with no torrent client to set up: paste a magnet link or .torrent URL and rqbit fetches it straight into one of your collections. Each download is a one-shot run — nothing keeps running in the background.",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/rqbit.zip"
     }
   ]
 }
