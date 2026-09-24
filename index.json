@@ -169,7 +169,7 @@
       "name": "Soulseek",
       "author": "Viboplr",
       "description": "Search and download from the Soulseek network via a slskd daemon: ranked results, whole-album grabs, live transfer progress, and finished files that play and reach your library.",
-      "version": "0.5.0",
+      "version": "0.7.0",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-slskd/releases/latest/download/slskd.zip",
@@ -180,9 +180,11 @@
       "name": "rqbit",
       "author": "Viboplr",
       "description": "Download music over BitTorrent with no torrent client to set up: paste a magnet link or .torrent URL and rqbit fetches it straight into one of your collections. Each download is a one-shot run — nothing keeps running in the background.",
+      "version": "0.1.0",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/rqbit.zip"
+      "installUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/rqbit.zip",
+      "minAppVersion": "1.0.71"
     }
   ]
 }
