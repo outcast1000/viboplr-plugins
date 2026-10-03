@@ -185,6 +185,17 @@
       "updateUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-rqbit/releases/latest/download/rqbit.zip",
       "minAppVersion": "1.0.73"
+    },
+    {
+      "id": "llm",
+      "name": "AI Assistant",
+      "author": "Viboplr",
+      "description": "An AI assistant on your own model — Ollama, LM Studio or any OpenAI-compatible service. Ask for music in plain words, fill albums, find better copies, tidy titles and tags, and read what a song is about. Asks before changing anything.",
+      "version": "0.1.0",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-llm/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-llm/releases/latest/download/llm.zip",
+      "minAppVersion": "1.0.85"
     }
   ]
 }
