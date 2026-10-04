@@ -196,6 +196,17 @@
       "updateUrl": "https://github.com/outcast1000/viboplr-llm/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-llm/releases/latest/download/llm.zip",
       "minAppVersion": "1.0.85"
+    },
+    {
+      "id": "commons",
+      "name": "Wikimedia Commons",
+      "author": "Viboplr",
+      "description": "Freely licensed photos of your artists from Wikimedia Commons: a Photos tab on artist pages, each picture credited to its photographer with its licence. AI assistants can search Commons too, so Now Playing cue sheets use real photos.",
+      "version": "0.1.0",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-commons/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-commons/releases/latest/download/commons.zip",
+      "minAppVersion": "1.0.85"
     }
   ]
 }
