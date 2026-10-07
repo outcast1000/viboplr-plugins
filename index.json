@@ -207,6 +207,17 @@
       "updateUrl": "https://github.com/outcast1000/viboplr-commons/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-commons/releases/latest/download/commons.zip",
       "minAppVersion": "1.0.85"
+    },
+    {
+      "id": "duckduckgo",
+      "name": "DuckDuckGo Images",
+      "author": "Viboplr",
+      "description": "Artist photos and album covers from DuckDuckGo image search, for the artists and albums the music catalogs don't know. Put it last in Settings → Providers. AI assistants can search web images too.",
+      "version": "0.1.0",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-duckduckgo/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-duckduckgo/releases/latest/download/duckduckgo.zip",
+      "minAppVersion": "1.0.85"
     }
   ]
 }
