@@ -230,6 +230,18 @@
       "installUrl": "https://github.com/outcast1000/viboplr-community-plugin/releases/latest/download/community.zip",
       "minAppVersion": "1.0.97",
       "icon": "M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"
+    },
+    {
+      "id": "cover-carousel",
+      "name": "Cover Carousel",
+      "author": "Viboplr",
+      "description": "Shows the play queue as a 3D carousel of album covers. Click a cover to play it, or the playing one to pause; drag, scroll or use the arrow keys to browse. Covers without artwork get a tile set from the album and artist. Pick it from the visualizer button in the Now Playing view.",
+      "version": "0.1.0",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-cover-carousel/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-cover-carousel/releases/latest/download/cover-carousel.zip",
+      "minAppVersion": "1.0.86",
+      "icon": "M3 7l5 2v6l-5 2zM21 7l-5 2v6l5 2zM9 5h6v14H9z"
     }
   ]
 }
