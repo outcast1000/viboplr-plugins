@@ -46,7 +46,8 @@ You don't edit `index.json` by hand. Instead:
       "updateUrl": "https://github.com/<owner>/<repo>/releases/latest/download/update.json",
       "installUrl": "https://github.com/<owner>/<repo>/releases/latest/download/<name>.zip",
       "icon": "M… (optional SVG path from manifest)",
-      "recommended": false
+      "recommended": false,
+      "provides": ["web-search", "images"]
     }
   ]
 }
@@ -61,6 +62,18 @@ You don't edit `index.json` by hand. Instead:
   `latest`, **a plugin version bump needs no index change** — the same URL just
   resolves to the new release.
 - `minAppVersion` is advisory (display + pre-install compatibility hint).
+- `provides` lists the **services** the plugin declares, so the app's Extensions
+  view, the website and AI assistants can say "provides web search" before it is
+  installed. It is **derived by the bot** from the release zip's `manifest.json`
+  (`servicesOf` in `scripts/lib.mjs`) — never hand-edited — on submission and
+  again by `reconcile-versions.mjs` whenever the plugin's version changes.
+  Ids: `playback-fallback` (stream resolvers), `downloads`, `web-search`,
+  `catalog-search` (Cmd+K), `images`, `scrobbling`, `home-shelves`,
+  `assistant-tools`, `visualizers`, `waveforms`. The list is a wire format
+  shared with the app (`src/utils/extensionSummary.ts` → `PLUGIN_SERVICES`):
+  add ids, never rename one. Only what the manifest *declares* is listed — a
+  provider a plugin registers at runtime (yt-dlp's Cmd+K search) is invisible
+  here.
 - `recommended` is **curator-controlled** — it is never set from a submission.
   Maintainers flip it in the PR diff to feature a plugin (the app offers
   recommended plugins on first run, and the website highlights them). It is

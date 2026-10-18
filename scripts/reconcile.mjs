@@ -67,3 +67,20 @@ export function applyPlan(entry, changes) {
 
   return changed;
 }
+
+/** Whether an entry's `provides` must be (re)read from its plugin's zip: a
+ *  new release can declare different services, and an entry without the key
+ *  has never been read. Otherwise the daily run stays one update.json fetch
+ *  per plugin — no zip downloads. */
+export function needsProvides(entry, changes) {
+  return "version" in changes || !Array.isArray(entry.provides);
+}
+
+/** Set `provides` on an entry when it differs (order-sensitive — both sides
+ *  are in SERVICE_IDS order). Returns true if anything changed. */
+export function applyProvides(entry, provides) {
+  const before = Array.isArray(entry.provides) ? entry.provides : null;
+  if (before && before.length === provides.length && before.every((id, i) => id === provides[i])) return false;
+  entry.provides = provides;
+  return true;
+}

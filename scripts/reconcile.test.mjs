@@ -1,6 +1,6 @@
 // Tests for the version-reconcile logic. Run: node scripts/reconcile.test.mjs
 import assert from "node:assert/strict";
-import { planEntryUpdate, applyPlan } from "./reconcile.mjs";
+import { planEntryUpdate, applyPlan, needsProvides, applyProvides } from "./reconcile.mjs";
 
 let pass = 0;
 function t(name, fn) {
@@ -63,6 +63,23 @@ t("applyPlan updates an existing version in place", () => {
 
 t("applyPlan returns false when there is nothing to change", () => {
   assert.equal(applyPlan({ id: "x", version: "1.0.0" }, {}), false);
+});
+
+t("provides is read on a new version or when it was never read — not otherwise", () => {
+  assert.equal(needsProvides({ id: "x", provides: [] }, { version: "2.0.0" }), true);
+  assert.equal(needsProvides({ id: "x" }, {}), true);
+  assert.equal(needsProvides({ id: "x", provides: ["images"] }, {}), false);
+  assert.equal(needsProvides({ id: "x", provides: ["images"] }, { minAppVersion: "1.0.0" }), false);
+});
+
+t("applyProvides changes only when the list differs", () => {
+  const entry = { id: "x", provides: ["images"] };
+  assert.equal(applyProvides(entry, ["images"]), false);
+  assert.equal(applyProvides(entry, ["web-search", "images"]), true);
+  assert.deepEqual(entry.provides, ["web-search", "images"]);
+  const fresh = { id: "y" };
+  assert.equal(applyProvides(fresh, []), true);
+  assert.deepEqual(fresh.provides, []);
 });
 
 console.log(`\n${pass} passed`);

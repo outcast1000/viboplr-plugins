@@ -1,6 +1,6 @@
 // Tiny no-deps test runner for lib.mjs. Run: node scripts/lib.test.mjs
 import assert from "node:assert/strict";
-import { parseIssueForm, compareVersions, isVersionString, isHttpsUrl, isCleanText } from "./lib.mjs";
+import { parseIssueForm, compareVersions, isVersionString, isHttpsUrl, isCleanText, SERVICE_IDS, servicesOf } from "./lib.mjs";
 
 let pass = 0;
 function t(name, fn) {
@@ -53,6 +53,34 @@ t("isCleanText blocks markup but allows spaces/punctuation", () => {
   assert.ok(isCleanText("My Cool Plugin — v2 (fast)"));
   assert.ok(!isCleanText("<script>"));
   assert.ok(!isCleanText("a > b"));
+});
+
+// SERVICE_IDS / servicesOf are a wire format shared with the app
+// (src/utils/extensionSummary.ts, pinned there by extensionSummary.test.ts).
+t("SERVICE_IDS keeps the order the app expects", () => {
+  assert.deepEqual(SERVICE_IDS, [
+    "playback-fallback", "downloads", "web-search", "catalog-search", "images",
+    "scrobbling", "home-shelves", "assistant-tools", "visualizers", "waveforms",
+  ]);
+});
+
+t("servicesOf derives declared services in SERVICE_IDS order", () => {
+  const manifest = {
+    contributes: {
+      webSearchProviders: [{ id: "web", name: "DuckDuckGo" }],
+      imageProviders: [{ entity: "artist" }],
+      streamResolvers: [{ id: "yt", name: "YouTube" }],
+      eventHooks: ["track:scrobbled"],
+      assistant: { tools: [{ name: "search_images", description: "d" }] },
+    },
+  };
+  assert.deepEqual(servicesOf(manifest), ["playback-fallback", "web-search", "images", "scrobbling", "assistant-tools"]);
+});
+
+t("servicesOf tolerates missing or odd contributes", () => {
+  assert.deepEqual(servicesOf({}), []);
+  assert.deepEqual(servicesOf(null), []);
+  assert.deepEqual(servicesOf({ contributes: { assistant: { instructions: "prose only" }, searchProviders: "x" } }), []);
 });
 
 console.log(`\n${pass} passed`);

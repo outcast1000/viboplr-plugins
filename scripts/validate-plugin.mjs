@@ -18,6 +18,7 @@ import {
   isHttpsUrl,
   isVersionString,
   isCleanText,
+  servicesOf,
 } from "./lib.mjs";
 
 const MANIFEST_AT_ROOT = "manifest.json";
@@ -162,6 +163,11 @@ export async function validatePlugin(updateUrl) {
       // "Install in app" deep link (viboplr://install-plugin?url=...) uses it.
       installUrl: String(update.file),
       // recommended is curator-controlled — never set from a submission.
+      // What the plugin provides (web search, playback fallback, …), read off
+      // the zip's own manifest so the gallery can advertise it. Always
+      // present, even empty: reconcile-versions.mjs re-derives it on each
+      // release and treats a missing key as "never read".
+      provides: servicesOf(manifest),
     };
     if (manifest.icon && isCleanText(manifest.icon)) entry.icon = String(manifest.icon);
 

@@ -4,7 +4,7 @@
 // uniqueness, and field hygiene. Exits non-zero on any error.
 
 import { readFileSync } from "node:fs";
-import { isHttpsUrl, isVersionString, isCleanText } from "./lib.mjs";
+import { isHttpsUrl, isVersionString, isCleanText, SERVICE_IDS } from "./lib.mjs";
 import { readRecommendedIds, RECOMMENDED_FILE } from "./recommended.mjs";
 
 const INDEX = "index.json";
@@ -39,6 +39,15 @@ if (!Array.isArray(index.plugins)) {
     // (synced from each plugin's live update.json). Humans don't hand-set it; if
     // present it must be a version string. Absent is fine (the bot backfills it).
     if ("version" in p && !isVersionString(p.version)) errors.push(`${at}: version, if present, must be numeric (owned by reconcile-versions.mjs).`);
+    // `provides` is derived from the plugin's manifest by the bot (lib.mjs →
+    // servicesOf). An unknown id is an error here even though the app would
+    // ignore it: in this repo it can only be a typo or a hand edit.
+    if ("provides" in p) {
+      if (!Array.isArray(p.provides)) errors.push(`${at}: provides, if present, must be an array (owned by the bot).`);
+      else for (const s of p.provides) {
+        if (!SERVICE_IDS.includes(s)) errors.push(`${at}: provides has unknown service "${s}" (known: ${SERVICE_IDS.join(", ")}).`);
+      }
+    }
   });
 
   // recommended.json is the single source of truth; index flags must match it.

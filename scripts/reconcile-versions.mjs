@@ -1,5 +1,8 @@
 // Sync each plugin entry's display `version` / `minAppVersion` in index.json
-// from its live update.json (the single source of truth). Run:
+// from its live update.json (the single source of truth), and its `provides`
+// (the services it declares) from the release zip's manifest — read only when
+// the version moved or the entry has never had it, so the daily run doesn't
+// download every zip. Run:
 //   node scripts/reconcile-versions.mjs           # apply + write index.json
 //   node scripts/reconcile-versions.mjs --check    # verify in sync, write nothing (CI)
 //
@@ -10,8 +13,20 @@
 // warnings only and never touch the entry or fail the run.
 
 import { readFileSync, writeFileSync, appendFileSync } from "node:fs";
-import { fetchJson } from "./lib.mjs";
-import { planEntryUpdate, applyPlan } from "./reconcile.mjs";
+import { fetchJson, downloadToTemp, readZipFile, isHttpsUrl, servicesOf } from "./lib.mjs";
+import { planEntryUpdate, applyPlan, needsProvides, applyProvides } from "./reconcile.mjs";
+
+/** The services the release's own manifest declares. Throws on a download or
+ *  parse failure — the caller treats that as transient and keeps the entry. */
+async function readProvides(update) {
+  if (!isHttpsUrl(update.file)) throw new Error(`update.json "file" is not an https URL`);
+  const dl = await downloadToTemp(update.file, "plugin.zip");
+  try {
+    return servicesOf(JSON.parse(readZipFile(dl.path, "manifest.json")));
+  } finally {
+    dl.cleanup();
+  }
+}
 
 const INDEX = "index.json";
 const check = process.argv.includes("--check");
@@ -55,16 +70,30 @@ for (const p of index.plugins) {
     continue;
   }
 
-  const before = { version: p.version, minAppVersion: p.minAppVersion };
-  if (applyPlan(p, changes)) {
+  const before = { version: p.version, minAppVersion: p.minAppVersion, provides: p.provides };
+  // Read before applying: needsProvides looks at the planned version change.
+  let providesNote = "";
+  let providesChanged = false;
+  if (needsProvides(p, changes)) {
+    try {
+      providesChanged = applyProvides(p, await readProvides(update));
+    } catch (e) {
+      // Like a network blip on update.json: keep what the entry says, retry tomorrow.
+      providesNote = ` · ⚠️ provides not read: ${e.message} (transient)`;
+    }
+  }
+  const versionChanged = applyPlan(p, changes);
+  if (versionChanged || providesChanged) {
     changedCount++;
     const parts = [];
     if ("version" in changes) parts.push(`version ${before.version ?? "-"} → ${p.version}`);
     if ("minAppVersion" in changes)
       parts.push(`minApp ${before.minAppVersion ?? "-"} → ${p.minAppVersion}`);
-    rows.push({ id, status: `✅ ${parts.join(", ")}` });
+    if (providesChanged)
+      parts.push(`provides [${(before.provides ?? []).join(", ") || "-"}] → [${p.provides.join(", ") || "-"}]`);
+    rows.push({ id, status: `✅ ${parts.join(", ")}${providesNote}` });
   } else {
-    rows.push({ id, status: "up to date" });
+    rows.push({ id, status: `up to date${providesNote}` });
   }
 }
 

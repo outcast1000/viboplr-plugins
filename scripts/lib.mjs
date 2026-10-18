@@ -90,6 +90,48 @@ export function readZipFile(zipPath, entry) {
   return execFileSync("unzip", ["-p", zipPath, entry], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
 }
 
+/**
+ * Services a plugin provides to the rest of the app, as stable ids. A wire
+ * format shared with the app — `PLUGIN_SERVICES` / `pluginServicesOf` in
+ * viboplr `src/utils/extensionSummary.ts` — which labels them in the
+ * Extensions view ("Web search", "Playback fallback", …). Keep both lists and
+ * both derivations in step; add ids, never rename one (an older app ignores
+ * an id it doesn't know, a renamed one silently vanishes).
+ */
+export const SERVICE_IDS = [
+  "playback-fallback",
+  "downloads",
+  "web-search",
+  "catalog-search",
+  "images",
+  "scrobbling",
+  "home-shelves",
+  "assistant-tools",
+  "visualizers",
+  "waveforms",
+];
+
+/** The services a manifest declares, in SERVICE_IDS order. Declared, not
+ *  live: a provider a plugin registers only at runtime can't be seen here. */
+export function servicesOf(manifest) {
+  const c = manifest && typeof manifest === "object" ? manifest.contributes : null;
+  if (!c || typeof c !== "object") return [];
+  const len = (v) => (Array.isArray(v) ? v.length : 0);
+  const has = {
+    "playback-fallback": len(c.streamResolvers) > 0,
+    "downloads": len(c.downloadProviders) > 0,
+    "web-search": len(c.webSearchProviders) > 0,
+    "catalog-search": len(c.searchProviders) > 0,
+    "images": len(c.imageProviders) > 0,
+    "scrobbling": !!c.scrobbler || (Array.isArray(c.eventHooks) && c.eventHooks.includes("track:scrobbled")),
+    "home-shelves": len(c.homeShelves) > 0,
+    "assistant-tools": len(c.assistant && c.assistant.tools) > 0,
+    "visualizers": len(c.visualizers) > 0,
+    "waveforms": !!c.waveformProvider,
+  };
+  return SERVICE_IDS.filter((id) => has[id]);
+}
+
 /** True if `s` is a plain https URL (no javascript:, data:, etc.). */
 export function isHttpsUrl(s) {
   try {
