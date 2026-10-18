@@ -303,7 +303,7 @@
       "id": "community",
       "name": "Viboplr Community",
       "author": "Viboplr",
-      "description": "A Community tab on every song, album and artist page: like and comment, and import the cue sheets and synced lyrics other listeners shared. Publish your own cue sheets, synced lyrics and saved playlists, and send your plays, likes and waveforms if you choose. Browsing is on community.viboplr.com. Sign in with GitHub to share, like or comment; importing needs no account.",
+      "description": "A Community tab on every song, album and artist page: its likes and comments, and the cue sheets and synced lyrics other listeners shared, to import. Publish your own cue sheets, synced lyrics and saved playlists, and send your plays, likes and waveforms if you choose. Browsing is on community.viboplr.com. Sign in with GitHub to share, like or comment; importing needs no account.",
       "version": "1.7.0",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-community-plugin/releases/latest/download/update.json",
