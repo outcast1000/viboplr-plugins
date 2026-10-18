@@ -5,6 +5,7 @@
 // download every zip. Run:
 //   node scripts/reconcile-versions.mjs           # apply + write index.json
 //   node scripts/reconcile-versions.mjs --check    # verify in sync, write nothing (CI)
+//   node scripts/reconcile-versions.mjs --refresh-provides  # re-read every zip's `provides` (after servicesOf changed)
 //
 // Idempotent. A broken plugin (update.json unreachable-404 / malformed /
 // non-numeric version) is a HARD error: the process exits non-zero so the
@@ -30,6 +31,7 @@ async function readProvides(update) {
 
 const INDEX = "index.json";
 const check = process.argv.includes("--check");
+const refreshProvides = process.argv.includes("--refresh-provides");
 
 const index = JSON.parse(readFileSync(INDEX, "utf8"));
 if (!Array.isArray(index.plugins)) {
@@ -74,7 +76,7 @@ for (const p of index.plugins) {
   // Read before applying: needsProvides looks at the planned version change.
   let providesNote = "";
   let providesChanged = false;
-  if (needsProvides(p, changes)) {
+  if (needsProvides(p, changes, refreshProvides)) {
     try {
       providesChanged = applyProvides(p, await readProvides(update));
     } catch (e) {

@@ -70,6 +70,8 @@ t("provides is read on a new version or when it was never read — not otherwise
   assert.equal(needsProvides({ id: "x" }, {}), true);
   assert.equal(needsProvides({ id: "x", provides: ["images"] }, {}), false);
   assert.equal(needsProvides({ id: "x", provides: ["images"] }, { minAppVersion: "1.0.0" }), false);
+  // --refresh-provides: re-read everything (after servicesOf learned new ids).
+  assert.equal(needsProvides({ id: "x", provides: ["images"] }, {}, true), true);
 });
 
 t("applyProvides changes only when the list differs", () => {

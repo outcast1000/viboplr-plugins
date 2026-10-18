@@ -72,8 +72,8 @@ export function applyPlan(entry, changes) {
  *  new release can declare different services, and an entry without the key
  *  has never been read. Otherwise the daily run stays one update.json fetch
  *  per plugin — no zip downloads. */
-export function needsProvides(entry, changes) {
-  return "version" in changes || !Array.isArray(entry.provides);
+export function needsProvides(entry, changes, refreshAll = false) {
+  return refreshAll || "version" in changes || !Array.isArray(entry.provides);
 }
 
 /** Set `provides` on an entry when it differs (order-sensitive — both sides

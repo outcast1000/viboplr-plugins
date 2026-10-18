@@ -18,7 +18,12 @@
         "server"
       ],
       "provides": [
-        "assistant-tools"
+        "assistant-tools",
+        "info:song_bio",
+        "info:song_meaning",
+        "info:artist_bio",
+        "info:album_wiki",
+        "info:lyrics"
       ]
     },
     {
@@ -36,7 +41,9 @@
       ],
       "provides": [
         "catalog-search",
-        "assistant-tools"
+        "assistant-tools",
+        "info:spotify_track_plays",
+        "info:spotify_artist_listeners"
       ]
     },
     {
@@ -95,7 +102,11 @@
       "stability": "experimental",
       "minAppVersion": "1.0.85",
       "provides": [
-        "images"
+        "images",
+        "images:artist",
+        "images:album",
+        "images:tag",
+        "info:lyrics"
       ]
     },
     {
@@ -175,7 +186,9 @@
       "provides": [
         "playback-fallback",
         "downloads",
-        "images"
+        "images",
+        "images:artist",
+        "images:album"
       ]
     },
     {
@@ -243,13 +256,14 @@
       "name": "AI Assistant",
       "author": "Viboplr",
       "description": "An AI assistant on your own model — Ollama, LM Studio or any OpenAI-compatible service. Ask for music in plain words, fill albums, find better copies, tidy titles and tags, and read what a song is about. Asks before changing anything.",
-      "version": "0.3.4",
+      "version": "0.3.5",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-llm/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-llm/releases/latest/download/llm.zip",
       "minAppVersion": "1.0.90",
       "provides": [
-        "assistant-tools"
+        "assistant-tools",
+        "info:lyrics_meaning"
       ]
     },
     {
@@ -263,7 +277,8 @@
       "installUrl": "https://github.com/outcast1000/viboplr-commons/releases/latest/download/commons.zip",
       "minAppVersion": "1.0.85",
       "provides": [
-        "assistant-tools"
+        "assistant-tools",
+        "info:artist_photos"
       ]
     },
     {
@@ -279,7 +294,9 @@
       "provides": [
         "web-search",
         "images",
-        "assistant-tools"
+        "assistant-tools",
+        "images:artist",
+        "images:album"
       ]
     },
     {
@@ -296,7 +313,11 @@
       "provides": [
         "scrobbling",
         "assistant-tools",
-        "waveforms"
+        "waveforms",
+        "info:community_shared",
+        "info:community_track",
+        "info:community_album",
+        "info:community_artist"
       ]
     },
     {

@@ -111,11 +111,29 @@ export const SERVICE_IDS = [
   "waveforms",
 ];
 
-/** The services a manifest declares, in SERVICE_IDS order. Declared, not
- *  live: a provider a plugin registers only at runtime can't be seen here. */
+/** Finer ids, after the SERVICE_IDS ones: what the app asks when a specific
+ *  lookup came back empty ("who has artist images", "who has lyrics"). */
+export const FINE_SERVICE_ID = /^(images:(artist|album|tag)|info:[A-Za-z0-9_.-]+)$/;
+
+/** The services a manifest declares: SERVICE_IDS in that order, then one
+ *  `images:<entity>` per entity it supplies images for, then one
+ *  `info:<typeId>` per information type, each in manifest order. Declared,
+ *  not live: a provider a plugin registers only at runtime can't be seen here. */
 export function servicesOf(manifest) {
   const c = manifest && typeof manifest === "object" ? manifest.contributes : null;
   if (!c || typeof c !== "object") return [];
+  const fine = [];
+  const addFine = (id) => { if (FINE_SERVICE_ID.test(id) && !fine.includes(id)) fine.push(id); };
+  for (const p of Array.isArray(c.imageProviders) ? c.imageProviders : []) {
+    if (p && typeof p.entity === "string") addFine(`images:${p.entity}`);
+  }
+  for (const t of Array.isArray(c.informationTypes) ? c.informationTypes : []) {
+    if (t && typeof t.id === "string") addFine(`info:${t.id}`);
+  }
+  return [...baseServicesOf(c), ...fine];
+}
+
+function baseServicesOf(c) {
   const len = (v) => (Array.isArray(v) ? v.length : 0);
   const has = {
     "playback-fallback": len(c.streamResolvers) > 0,

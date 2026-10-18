@@ -4,7 +4,7 @@
 // uniqueness, and field hygiene. Exits non-zero on any error.
 
 import { readFileSync } from "node:fs";
-import { isHttpsUrl, isVersionString, isCleanText, SERVICE_IDS } from "./lib.mjs";
+import { isHttpsUrl, isVersionString, isCleanText, SERVICE_IDS, FINE_SERVICE_ID } from "./lib.mjs";
 import { readRecommendedIds, RECOMMENDED_FILE } from "./recommended.mjs";
 
 const INDEX = "index.json";
@@ -45,7 +45,9 @@ if (!Array.isArray(index.plugins)) {
     if ("provides" in p) {
       if (!Array.isArray(p.provides)) errors.push(`${at}: provides, if present, must be an array (owned by the bot).`);
       else for (const s of p.provides) {
-        if (!SERVICE_IDS.includes(s)) errors.push(`${at}: provides has unknown service "${s}" (known: ${SERVICE_IDS.join(", ")}).`);
+        if (!SERVICE_IDS.includes(s) && !FINE_SERVICE_ID.test(String(s))) {
+          errors.push(`${at}: provides has unknown service "${s}" (known: ${SERVICE_IDS.join(", ")}, images:<entity>, info:<typeId>).`);
+        }
       }
     }
   });

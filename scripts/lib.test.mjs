@@ -74,7 +74,20 @@ t("servicesOf derives declared services in SERVICE_IDS order", () => {
       assistant: { tools: [{ name: "search_images", description: "d" }] },
     },
   };
-  assert.deepEqual(servicesOf(manifest), ["playback-fallback", "web-search", "images", "scrobbling", "assistant-tools"]);
+  assert.deepEqual(servicesOf(manifest), [
+    "playback-fallback", "web-search", "images", "scrobbling", "assistant-tools",
+    "images:artist",
+  ]);
+});
+
+t("servicesOf adds images:<entity> and info:<typeId>, deduped, in manifest order", () => {
+  const manifest = {
+    contributes: {
+      imageProviders: [{ entity: "album" }, { entity: "artist", provider: "x" }, { entity: "album", provider: "y" }, { entity: "planet" }],
+      informationTypes: [{ id: "lyrics" }, { id: "artist_bio" }, { id: "lyrics" }, { id: "bad id!" }],
+    },
+  };
+  assert.deepEqual(servicesOf(manifest), ["images", "images:album", "images:artist", "info:lyrics", "info:artist_bio"]);
 });
 
 t("servicesOf tolerates missing or odd contributes", () => {

@@ -69,7 +69,12 @@ You don't edit `index.json` by hand. Instead:
   again by `reconcile-versions.mjs` whenever the plugin's version changes.
   Ids: `playback-fallback` (stream resolvers), `downloads`, `web-search`,
   `catalog-search` (Cmd+K), `images`, `scrobbling`, `home-shelves`,
-  `assistant-tools`, `visualizers`, `waveforms`. The list is a wire format
+  `assistant-tools`, `visualizers`, `waveforms`, followed by finer ids the app
+  uses when one lookup came back empty: `images:<entity>` (artist / album /
+  tag) per image provider and `info:<typeId>` per information type
+  (`info:lyrics`, `info:artist_bio`, …). After `servicesOf` learns a new id,
+  run `node scripts/reconcile-versions.mjs --refresh-provides` once to re-read
+  every entry. The list is a wire format
   shared with the app (`src/utils/extensionSummary.ts` → `PLUGIN_SERVICES`):
   add ids, never rename one. Only what the manifest *declares* is listed — a
   provider a plugin registers at runtime (yt-dlp's Cmd+K search) is invisible
