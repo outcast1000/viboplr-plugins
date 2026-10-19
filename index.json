@@ -174,24 +174,6 @@
       ]
     },
     {
-      "id": "tidal-browse",
-      "name": "TIDAL",
-      "author": "Viboplr",
-      "description": "Search, stream, and download from TIDAL",
-      "version": "1.3.2",
-      "minAppVersion": "1.0.85",
-      "updateUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/update.json",
-      "installUrl": "https://github.com/outcast1000/viboplr-tidal/releases/latest/download/tidal.zip",
-      "stability": "experimental",
-      "provides": [
-        "playback-fallback",
-        "downloads",
-        "images",
-        "images:artist",
-        "images:album"
-      ]
-    },
-    {
       "id": "vinyl-deck",
       "name": "Vinyl Deck",
       "author": "Viboplr",
