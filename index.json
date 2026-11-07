@@ -318,6 +318,22 @@
       "provides": [
         "visualizers"
       ]
+    },
+    {
+      "id": "gettyimages",
+      "name": "Getty Images",
+      "author": "Viboplr",
+      "description": "Editorial photos of an artist — concerts, portraits, archive shots — from Getty Images, as links: a Getty Images tab on artist pages, and a photo search for AI assistants. Nothing is downloaded or saved; each photo opens on Getty Images.",
+      "version": "0.1.0",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-gettyimages/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-gettyimages/releases/latest/download/gettyimages.zip",
+      "minAppVersion": "1.0.97",
+      "provides": [
+        "assistant-tools",
+        "info:getty_photos"
+      ],
+      "icon": "M4 7h3l2-3h6l2 3h3v13H4zM12 10a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
     }
   ]
 }
