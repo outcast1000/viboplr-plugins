@@ -109,6 +109,8 @@ export const SERVICE_IDS = [
   "assistant-tools",
   "visualizers",
   "waveforms",
+  // Pictures picked for what's playing (api.contextImages).
+  "context-images",
 ];
 
 /** Finer ids, after the SERVICE_IDS ones: what the app asks when a specific
@@ -146,6 +148,7 @@ function baseServicesOf(c) {
     "assistant-tools": len(c.assistant && c.assistant.tools) > 0,
     "visualizers": len(c.visualizers) > 0,
     "waveforms": !!c.waveformProvider,
+    "context-images": len(c.contextImageProviders) > 0,
   };
   return SERVICE_IDS.filter((id) => has[id]);
 }

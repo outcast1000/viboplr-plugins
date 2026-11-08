@@ -61,7 +61,12 @@ t("SERVICE_IDS keeps the order the app expects", () => {
   assert.deepEqual(SERVICE_IDS, [
     "playback-fallback", "downloads", "web-search", "catalog-search", "images",
     "scrobbling", "home-shelves", "assistant-tools", "visualizers", "waveforms",
+    "context-images",
   ]);
+});
+
+t("servicesOf names a context-image provider", () => {
+  assert.deepEqual(servicesOf({ contributes: { contextImageProviders: [{ id: "artist-era", name: "Commons" }] } }), ["context-images"]);
 });
 
 t("servicesOf derives declared services in SERVICE_IDS order", () => {
