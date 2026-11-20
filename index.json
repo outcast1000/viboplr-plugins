@@ -348,6 +348,21 @@
       "installUrl": "https://github.com/outcast1000/viboplr-library-explorer/releases/latest/download/library-explorer.zip",
       "minAppVersion": "1.0.118",
       "provides": []
+    },
+    {
+      "id": "whisper",
+      "name": "Whisper Lyrics Sync",
+      "author": "Vibo",
+      "description": "Times a song's plain lyrics by listening to it with Whisper, so they follow the song. Only lyrics the song already has; local files only.",
+      "version": "0.1.0",
+      "minAppVersion": "1.0.122",
+      "stability": "experimental",
+      "updateUrl": "https://github.com/outcast1000/viboplr-whisper/releases/latest/download/update.json",
+      "installUrl": "https://github.com/outcast1000/viboplr-whisper/releases/latest/download/whisper.zip",
+      "provides": [
+        "assistant-tools"
+      ],
+      "icon": "M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"
     }
   ]
 }
