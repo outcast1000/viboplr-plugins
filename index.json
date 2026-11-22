@@ -31,7 +31,7 @@
       "name": "Spotify",
       "author": "Viboplr",
       "description": "Browse your Spotify library — liked songs and playlists",
-      "version": "1.27.5",
+      "version": "1.29.0",
       "minAppVersion": "1.0.85",
       "updateUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-spotify/releases/latest/download/spotify.zip",
@@ -41,9 +41,21 @@
       ],
       "provides": [
         "catalog-search",
+        "images",
         "assistant-tools",
+        "images:artist",
+        "images:album",
         "info:spotify_track_plays",
-        "info:spotify_artist_listeners"
+        "info:spotify_track_credits",
+        "info:lyrics",
+        "info:spotify_artist_listeners",
+        "info:artist_top_tracks",
+        "info:album_track_popularity",
+        "info:artist_bio",
+        "info:similar_artists",
+        "info:spotify_artist_stats",
+        "info:spotify_artist_photos",
+        "info:spotify_concerts"
       ]
     },
     {
@@ -355,8 +367,8 @@
       "name": "Whisper Lyrics Sync",
       "author": "Vibo",
       "description": "Times a song's plain lyrics by listening to it with Whisper, so they follow the song. Only lyrics the song already has; local files only.",
-      "version": "0.1.1",
-      "minAppVersion": "1.0.122",
+      "version": "0.3.0",
+      "minAppVersion": "1.0.124",
       "stability": "experimental",
       "updateUrl": "https://github.com/outcast1000/viboplr-whisper/releases/latest/download/update.json",
       "installUrl": "https://github.com/outcast1000/viboplr-whisper/releases/latest/download/whisper.zip",
